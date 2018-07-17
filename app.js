@@ -9,7 +9,7 @@ var usersRouter = require('./routes/users');
 var product_listRouter = require('./routes/product_list');
 var app = express();
 
-
+const  cors = require('cors');
 
 var bodyParser = require('body-parser');
 app.use(bodyParser.json());
@@ -22,7 +22,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
+app.use(cors());
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/products',product_listRouter);

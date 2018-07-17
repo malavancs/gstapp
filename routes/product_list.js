@@ -2,18 +2,21 @@ var express = require('express');
 var mysql = require('mysql');
 var router= express.Router();
 var connection = mysql.createConnection({
-    host     : 'localhost',
-    user     : 'root',
-    password : '12345678',
-    database : 'GST_BILLING_APP'
+    host     : 'us-cdbr-iron-east-04.cleardb.net',
+    user     : 'b8d752ed02ca14',
+    password : '5f1daf91',
+    database : 'heroku_136dddc8ce42edf'
 });
 var app = express();
-
+//create table single_billing (sno int UNIQUE KEY AUTO_INCREMENT,name varchar(50),code varchar(50),price int, gst int,quantity int,date_added TIMESTAMP DEFAULT CURRENT_TIMESTAMP,bill_id varchar(50));
 connection.connect(function(err){
     if(!err) {
         console.log("Database is connected ... \n\n");
+
+
+
     } else {
-        console.log("Error connecting database ... \n\n");
+        console.log("Error connecting database ... \n\n"+err);
     }
 });
 
